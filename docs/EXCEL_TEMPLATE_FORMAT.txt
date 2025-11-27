@@ -1,0 +1,301 @@
+═══════════════════════════════════════════════════════════════════════════════
+  📊 EXCEL TEMPLATE FORMAT - SimpliPharma Inventory
+═══════════════════════════════════════════════════════════════════════════════
+
+This is the exact Excel format for importing/exporting inventory.
+
+═══════════════════════════════════════════════════════════════════════════════
+  📋 COLUMN HEADERS (Row 1)
+═══════════════════════════════════════════════════════════════════════════════
+
+Your existing format works! Here are the recognized headers:
+
+┌──────────────────┬──────────────────┬──────────┬──────────────┬────────────────────┐
+│ ID               │ Code             │ Product  │ Unit         │ Current Stock      │
+│                  │                  │ Name     │              │                    │
+├──────────────────┼──────────────────┼──────────┼──────────────┼────────────────────┤
+│ Sales Scheme     │ Sales Scheme     │ Purc.    │ Purc.Scheme  │ Cost Price         │
+│ Deal             │ Free             │ Scheme   │ Free         │                    │
+│                  │                  │ Deal     │              │                    │
+├──────────────────┼──────────────────┼──────────┼──────────────┼────────────────────┤
+│ Value            │ M.R.P.           │ Purchase │ Sales Price  │ Company            │
+│                  │                  │ Price    │              │                    │
+├──────────────────┼──────────────────┼──────────┼──────────────┼────────────────────┤
+│ Manufacturer     │ Category         │ Description│ Dosage      │ Composition        │
+├──────────────────┼──────────────────┼──────────┼──────────────┼────────────────────┤
+│ Side Effects     │ Image URL        │          │              │                    │
+└──────────────────┴──────────────────┴──────────┴──────────────┴────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+  ✅ REQUIRED COLUMNS (Must Have)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Product Name    - Cannot be empty
+2. Category        - Cannot be empty (e.g., "Pain Relief", "Antibiotic")
+3. Manufacturer    - Cannot be empty (e.g., "APL", "Cipla")
+
+═══════════════════════════════════════════════════════════════════════════════
+  📝 OPTIONAL COLUMNS (Can be empty)
+═══════════════════════════════════════════════════════════════════════════════
+
+• ID                    - Auto-generated if empty (for new products)
+• Code                  - Product SKU/Code
+• Unit                  - Unit of measurement
+• Current Stock         - Available quantity (defaults to 0)
+• Sales Scheme Deal     - Deal quantity for sales schemes
+• Sales Scheme Free     - Free quantity for sales schemes
+• Purc.Scheme Deal      - Deal quantity for purchase schemes
+• Purc.Scheme Free      - Free quantity for purchase schemes
+• Cost Price            - Your cost
+• Value                 - Total value
+• M.R.P.                - Maximum Retail Price
+• Purchase Price        - Price at which purchased
+• Sales Price           - Selling price
+• Company               - Distribution company
+• Description           - Product details
+• Dosage                - Dosage information
+• Composition           - Ingredients
+• Side Effects          - Side effects
+• Image URL             - Product image link
+
+═══════════════════════════════════════════════════════════════════════════════
+  📋 SAMPLE DATA ROWS (Based on Your Data)
+═══════════════════════════════════════════════════════════════════════════════
+
+Row 1:
+──────────────────────────────────────────────────────────────────────────────
+ID              : (leave empty for new, or existing ID for update)
+Code            : ITAPL525
+Product Name    : 01 AY IGF 20GM
+Unit            : PCS
+Current Stock   : 0
+Sales Scheme Deal   : 0
+Sales Scheme Free   : 0
+Purc.Scheme Deal    : 0
+Purc.Scheme Free    : 0
+Cost Price      : 83.5080
+Value           : 0.00
+M.R.P.          : 90.00
+Purchase Price  : 65.24
+Sales Price     : 0.00
+Company         : ANGLO FRENCH DRUGS & IND. LTD.
+Manufacturer    : APL
+Category        : Supplement
+Description     : (optional)
+Dosage          : 20GM
+Composition     : (optional)
+Side Effects    : (optional)
+Image URL       : (optional)
+
+Row 2:
+──────────────────────────────────────────────────────────────────────────────
+ID              : (empty)
+Code            : ITAPL526
+Product Name    : 01 AY IGF 40GM
+Unit            : 2PCS
+Current Stock   : 0
+Sales Scheme Deal   : 0
+Sales Scheme Free   : 0
+Purc.Scheme Deal    : 0
+Purc.Scheme Free    : 0
+Cost Price      : 159.4233
+Value           : 0.00
+M.R.P.          : 189.00
+Purchase Price  : 124.55
+Sales Price     : 0.00
+Company         : 
+Manufacturer    : APL
+Category        : Supplement
+Description     : 
+Dosage          : 40GM
+Composition     : 
+Side Effects    : 
+Image URL       : 
+
+Row 3:
+──────────────────────────────────────────────────────────────────────────────
+ID              : (empty)
+Code            : ITONW001
+Product Name    : 100% WHEY GOLD 10LBS
+Unit            : POW
+Current Stock   : 0
+Sales Scheme Deal   : 0
+Sales Scheme Free   : 0
+Purc.Scheme Deal    : 0
+Purc.Scheme Free    : 0
+Cost Price      : 9910.8200
+Value           : 0.00
+M.R.P.          : 13999.00
+Purchase Price  : 8399.00
+Sales Price     : 0.00
+Company         : 
+Manufacturer    : ON WHEY
+Category        : Supplement
+Description     : 100% Whey Gold 10LBS protein powder
+Dosage          : As per requirement
+Composition     : Whey Protein Isolate
+Side Effects    : 
+Image URL       : 
+
+═══════════════════════════════════════════════════════════════════════════════
+  🔢 DATA TYPES
+═══════════════════════════════════════════════════════════════════════════════
+
+Text Fields:
+───────────────────────────────────────────────────────────────────────────────
+• ID, Code, Product Name, Unit, Company, Manufacturer, Category
+• Description, Dosage, Composition, Side Effects, Image URL
+
+Format: Plain text
+Example: "01 AY IGF 20GM", "ITAPL525", "PCS"
+
+Number Fields:
+───────────────────────────────────────────────────────────────────────────────
+• Current Stock, Sales Scheme Deal, Sales Scheme Free
+• Purc.Scheme Deal, Purc.Scheme Free
+• Cost Price, Value, M.R.P., Purchase Price, Sales Price
+
+Format: Numbers (with or without decimals)
+Example: 0, 10, 83.5080, 13999.00, 8399
+
+═══════════════════════════════════════════════════════════════════════════════
+  ⚠️ COMMON MISTAKES TO AVOID
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ Empty "Product Name" → Import will skip this row
+❌ Empty "Category" → Import will skip this row
+❌ Empty "Manufacturer" → Import will skip this row
+❌ Text in number fields → Will default to 0
+❌ Incorrect column headers → May not recognize field
+
+✅ Fill at least: Product Name, Category, Manufacturer
+✅ Use numbers for price/stock fields
+✅ Leave fields empty if no data (don't put "-" or "N/A")
+
+═══════════════════════════════════════════════════════════════════════════════
+  📥 IMPORT BEHAVIOR
+═══════════════════════════════════════════════════════════════════════════════
+
+When you import:
+
+1. IF "ID" field has value:
+   → App looks for product with that ID
+   → If found: UPDATES that product
+   → If not found: Creates new product
+
+2. IF "Code" field has value but ID is empty:
+   → App looks for product with that Code
+   → If found: UPDATES that product
+   → If not found: Creates new product
+
+3. IF both ID and Code are empty:
+   → App looks for product with same "Product Name"
+   → If found: UPDATES that product
+   → If not found: Creates new product
+
+4. IF all validations pass:
+   → Product added/updated successfully
+   → Counted in summary
+
+5. IF validation fails (missing required fields):
+   → Row skipped
+   → Counted in errors
+
+═══════════════════════════════════════════════════════════════════════════════
+  📤 EXPORT BEHAVIOR
+═══════════════════════════════════════════════════════════════════════════════
+
+When you export from the app:
+
+• All products exported in Excel format
+• All fields included (even if empty)
+• Column order preserved
+• Ready to re-import after editing
+• File name: medicines_inventory_YYYY-MM-DD.xlsx
+
+═══════════════════════════════════════════════════════════════════════════════
+  🎯 STEP-BY-STEP IMPORT PROCESS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Prepare Excel File:
+   ✓ Check column headers match (or are recognized)
+   ✓ Ensure Product Name, Category, Manufacturer filled
+   ✓ Verify numbers are formatted as numbers
+   ✓ Remove any extra sheets (keep only one)
+   ✓ Save as .xlsx file
+
+2. In SimpliPharma App:
+   ✓ Login as admin
+   ✓ Toggle admin mode (shield icon)
+   ✓ Go to Products tab
+   ✓ Tap upload icon (📤)
+   ✓ Select your .xlsx file
+
+3. Wait for Processing:
+   ✓ App reads file
+   ✓ Validates each row
+   ✓ Adds new products
+   ✓ Updates existing products
+
+4. Review Summary:
+   ✓ Shows count of added products
+   ✓ Shows count of updated products
+   ✓ Shows errors (if any)
+
+5. Verify:
+   ✓ Check product count
+   ✓ Search for specific products
+   ✓ Verify pricing and stock
+
+═══════════════════════════════════════════════════════════════════════════════
+  💡 PRO TIPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Always add a "Category" column to your Excel
+   Common categories:
+   • Pain Relief
+   • Antibiotic
+   • Supplement
+   • Vitamin
+   • OTC Medicine
+   • Prescription
+   • Ayurvedic
+   • Cosmetic
+   • Surgical
+   • First Aid
+
+2. Keep "Code" field unique
+   • Helps with updates
+   • Good for inventory tracking
+   • Use your existing SKU system
+
+3. Test with small file first
+   • Try 5-10 products first
+   • Verify everything works
+   • Then import full inventory
+
+4. Keep backups
+   • Export from app regularly
+   • Save dated versions
+   • Store safely
+
+5. Use Excel formulas for calculations
+   • Calculate Value from Price × Stock
+   • Auto-fill categories
+   • Batch updates easier
+
+═══════════════════════════════════════════════════════════════════════════════
+  ✅ YOUR EXCEL FORMAT IS PERFECT!
+═══════════════════════════════════════════════════════════════════════════════
+
+Your existing Excel format matches our requirements!
+
+Just ensure you have:
+✓ Product Name column (you have it: "Product Name")
+✓ Manufacturer column (you have it: "Manufacturer")
+✓ Category column (ADD THIS if not present)
+
+Everything else is optional and will import as-is!
+
+═══════════════════════════════════════════════════════════════════════════════
+

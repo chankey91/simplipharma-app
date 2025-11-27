@@ -1,0 +1,146 @@
+═══════════════════════════════════════════════════════════════
+  BUILD ANDROID APK - QUICK START
+═══════════════════════════════════════════════════════════════
+
+📱 SIMPLEST METHOD - FOLLOW THESE STEPS:
+
+STEP 1: OPEN NEW COMMAND PROMPT
+================================
+- Press Win + R
+- Type: cmd
+- Press Enter
+- (Keep your current terminal running!)
+
+
+STEP 2: RUN THE BUILD SCRIPT
+=============================
+cd C:\Users\Chetan\OneDrive\Desktop\WEP\MedicineSupplyApp
+build-apk.bat
+
+
+WHAT WILL HAPPEN:
+=================
+1. Script checks if EAS CLI is installed ✓
+2. Asks you to login to Expo account
+3. If no account: It will help you create one
+4. Starts building APK in cloud
+5. Shows progress
+6. Gives you download link when done
+
+
+LOGIN DETAILS (If you don't have Expo account):
+================================================
+You'll be asked for:
+- Email: [Your email]
+- Username: [Choose any username]
+- Password: [Choose password]
+
+OR use existing account if you have one!
+
+
+ALTERNATIVE METHOD (Manual Commands):
+======================================
+If batch file doesn't work, run these one by one:
+
+1. eas login
+   (Enter your Expo credentials)
+
+2. eas build -p android --profile preview
+   (Wait 10-15 minutes for build)
+
+
+DOWNLOAD & INSTALL:
+===================
+Once build completes:
+
+1. Terminal shows: "Build finished!"
+2. You get a URL like: https://expo.dev/artifacts/eas/...
+3. Click the URL or copy to browser
+4. Download the .apk file
+5. Transfer to phone via USB or email
+6. Install on phone
+7. Done! ✓
+
+
+FILE LOCATION AFTER DOWNLOAD:
+==============================
+Usually downloads to:
+C:\Users\Chetan\Downloads\build-[random-id].apk
+
+
+INSTALLING ON PHONE:
+====================
+Method 1: USB Transfer
+- Connect phone to PC
+- Copy APK to phone's Downloads folder
+- Open file manager on phone
+- Tap the APK
+- Tap Install
+- Done!
+
+Method 2: Email/Drive
+- Upload APK to Google Drive
+- Open Drive on phone
+- Download APK
+- Tap to install
+- Done!
+
+Method 3: Direct Download
+- Open the expo.dev link on phone browser
+- Download APK directly
+- Install from notification
+- Done!
+
+
+BUILD TIME:
+===========
+- Upload: 1-2 minutes
+- Build: 8-12 minutes
+- Total: ~10-15 minutes
+
+Go grab a coffee! ☕
+
+
+WHAT YOU GET:
+=============
+✓ Standalone APK file (~40-50 MB)
+✓ Works on any Android phone
+✓ No Expo Go needed
+✓ Can be shared with anyone
+✓ Professional build
+
+
+TROUBLESHOOTING:
+================
+
+Issue: "Input is required but stdin not readable"
+Fix: Run commands in NEW command prompt, not in current one
+
+Issue: "Not logged in"
+Fix: Run: eas login
+
+Issue: "No project ID"
+Fix: Run: eas build:configure
+
+Issue: Build fails
+Fix: Check internet, try again
+
+
+AFTER APK IS INSTALLED:
+========================
+1. Open SimpliPharma app on phone
+2. Login with admin credentials
+3. Tap shield icon (top-right)
+4. See all admin features including Accounting!
+5. Everything works offline after first load!
+
+
+NEED HELP?
+==========
+See BUILD_ANDROID_GUIDE.md for detailed instructions
+
+
+═══════════════════════════════════════════════════════════════
+  READY TO BUILD! RUN: build-apk.bat
+═══════════════════════════════════════════════════════════════
+

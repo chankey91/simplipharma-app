@@ -1,0 +1,142 @@
+═══════════════════════════════════════════════════════════════
+  ACCOUNTING & PAYMENT COLLECTION - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+📱 ACCESS
+=========
+1. Login as Admin
+2. Toggle Admin Mode (🛡️ shield icon)
+3. Tap "Accounting" tab (💰 wallet icon)
+
+💵 COLLECT PAYMENT
+==================
+1. Find order in "Outstanding Payments"
+2. Tap "Collect" button
+3. Enter payment amount
+4. Select payment method:
+   • Cash
+   • Card
+   • UPI
+   • Bank Transfer
+   • Cheque
+5. Add notes (optional)
+6. Tap "Record Payment"
+✓ Done! Payment recorded
+
+📊 DASHBOARD CARDS
+==================
+┌─────────────────────────────────┐
+│ 💰 Total Revenue                │
+│    ₹1,25,450.00                 │
+│                                 │
+│ ✅ Collected                    │
+│    ₹95,200.00                   │
+│                                 │
+│ ⚠️ Outstanding                  │
+│    ₹30,250.00                   │
+└─────────────────────────────────┘
+
+🎨 PAYMENT STATUS
+=================
+🟢 PAID     - Fully paid, no dues
+🟠 PARTIAL  - Partially paid, amount pending
+🔴 UNPAID   - No payment received
+
+📋 VIEW PAYMENT HISTORY
+=======================
+1. Tap "History" button on order card
+2. See all payments for that order
+3. View payment method, date, notes
+
+👥 RETAILER STATEMENTS
+======================
+1. Scroll to "Retailer Accounts"
+2. Tap on retailer name
+3. View complete account statement:
+   • Total ordered
+   • Total paid
+   • Outstanding dues
+   • All orders history
+
+📥 EXPORT LEDGER
+================
+1. Tap Export icon (📥) in header
+2. Excel file generates
+3. Share dialog opens
+4. Save to Files/Drive/Email
+
+LEDGER FORMAT:
+--------------
+Date | Order ID | Retailer | Amount | Paid | Due | Status
+
+⚡ QUICK WORKFLOWS
+=================
+
+DAILY COLLECTION:
+-----------------
+Morning → Check Outstanding → Collect Payments → Record → Reconcile
+
+WEEKLY REVIEW:
+--------------
+Mon → Export Ledger → Review Outstanding → Send Reminders
+
+MONTHLY CLOSING:
+----------------
+Month End → Export Full Ledger → Generate Statements → Send to Retailers
+
+💡 BEST PRACTICES
+=================
+
+✓ Record payments immediately
+✓ Always add reference notes
+✓ Export ledger regularly
+✓ Follow up on outstanding daily
+✓ Send monthly statements to retailers
+✓ Reconcile with bank statements
+✓ Keep backup of all exports
+
+🔔 PAYMENT NOTES EXAMPLES
+==========================
+
+UPI:
+"UPI Ref: 123456789012"
+
+Cheque:
+"Cheque #123456, HDFC Bank, dated 25/10/2025"
+
+Card:
+"Card ending 1234, Terminal: ABC-123"
+
+Bank Transfer:
+"NEFT Ref: N123456789, SBI"
+
+Cash:
+"Cash payment, Receipt #CR-001"
+
+⚠️ IMPORTANT REMINDERS
+======================
+
+• Payment amount cannot exceed due amount
+• All payments are immediately reflected
+• Pull to refresh for latest data
+• Cannot undo payments (contact support)
+• Keep payment proofs/screenshots
+• Regular exports for backup
+• Maintain systematic records
+
+📊 COLLECTION TARGETS
+=====================
+
+Good Collection Rate: > 80%
+Excellent Collection Rate: > 90%
+
+Track:
+• Outstanding aging (30/60/90 days)
+• Retailer payment patterns
+• Payment method preferences
+• Collection trends
+
+═══════════════════════════════════════════════════════════════
+  READY TO GO! START COLLECTING PAYMENTS! 💰✨
+═══════════════════════════════════════════════════════════════
+

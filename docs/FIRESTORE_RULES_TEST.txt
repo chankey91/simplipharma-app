@@ -1,0 +1,14 @@
+// ⚠️ TEMPORARY TEST RULES - Use only for development/testing
+// These rules allow all authenticated users to read/write everything
+// Replace with production rules from FIREBASE_SETUP.md before deploying!
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow all authenticated users to read/write everything (TEST ONLY)
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+

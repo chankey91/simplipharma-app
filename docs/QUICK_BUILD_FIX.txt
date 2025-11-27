@@ -1,0 +1,122 @@
+═══════════════════════════════════════════════════════════════
+  ANDROID BUILD FIX - FOLLOW THESE STEPS EXACTLY
+═══════════════════════════════════════════════════════════════
+
+🚨 COMMON MISTAKE:
+You CANNOT run build commands in the same terminal as Metro bundler!
+
+
+✅ CORRECT WAY:
+===============
+
+TERMINAL 1 (Already Running - DON'T CLOSE):
+--------------------------------------------
+> npx expo start
+[Metro bundler - KEEP THIS RUNNING]
+
+
+TERMINAL 2 (NEW - Open This Now):
+----------------------------------
+1. Press Win + R
+2. Type: cmd
+3. Press Enter
+
+Then run these commands:
+
+cd C:\Users\Chetan\OneDrive\Desktop\WEP\MedicineSupplyApp
+
+eas login
+(Enter your Expo email and password)
+(If no account, visit: https://expo.dev/signup)
+
+eas build -p android --profile preview
+
+
+═══════════════════════════════════════════════════════════════
+  OR USE THE AUTOMATED SCRIPT:
+═══════════════════════════════════════════════════════════════
+
+In NEW terminal:
+cd C:\Users\Chetan\OneDrive\Desktop\WEP\MedicineSupplyApp
+build-fix.bat
+
+This will:
+✓ Check if EAS CLI is installed
+✓ Help you login
+✓ Start the build
+✓ Show progress
+
+
+═══════════════════════════════════════════════════════════════
+  WHAT HAPPENS NEXT:
+═══════════════════════════════════════════════════════════════
+
+1. Code uploads to Expo servers (1-2 mins)
+2. Build happens in cloud (10-15 mins)
+3. You get a download link
+4. Download APK file
+5. Install on phone!
+
+
+═══════════════════════════════════════════════════════════════
+  IF YOU DON'T HAVE EXPO ACCOUNT:
+═══════════════════════════════════════════════════════════════
+
+1. Visit: https://expo.dev/signup
+2. Create free account
+3. Verify email
+4. Come back and run: eas login
+
+
+═══════════════════════════════════════════════════════════════
+  TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════
+
+Error: "Input is required but stdin not readable"
+Fix: You're in the wrong terminal! Open NEW terminal!
+
+Error: "Not logged in"
+Fix: Run: eas login
+
+Error: "Command not found: eas"
+Fix: Run: npm install -g eas-cli
+
+Error: "Network error"
+Fix: Check internet connection, try again
+
+
+═══════════════════════════════════════════════════════════════
+  CHECK BUILD STATUS:
+═══════════════════════════════════════════════════════════════
+
+Command: eas build:list
+
+Or visit: https://expo.dev/accounts/[your-username]/projects
+
+
+═══════════════════════════════════════════════════════════════
+  AFTER BUILD COMPLETES:
+═══════════════════════════════════════════════════════════════
+
+You'll get a message like:
+"Build finished! 🎉"
+"Download: https://expo.dev/artifacts/eas/..."
+
+1. Click the link
+2. Download .apk file
+3. Transfer to phone
+4. Install!
+
+
+═══════════════════════════════════════════════════════════════
+  READY? START NOW:
+═══════════════════════════════════════════════════════════════
+
+1. Open NEW Command Prompt (Win + R → cmd)
+2. Run: cd C:\Users\Chetan\OneDrive\Desktop\WEP\MedicineSupplyApp
+3. Run: build-fix.bat
+4. Follow the prompts!
+
+
+═══════════════════════════════════════════════════════════════
+

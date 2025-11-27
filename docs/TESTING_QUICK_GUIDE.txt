@@ -1,0 +1,249 @@
+═══════════════════════════════════════════════════════════════
+      SIMPLIPHARMA - QUICK TESTING GUIDE
+═══════════════════════════════════════════════════════════════
+
+📋 **Full Checklist:** See TESTING_CHECKLIST.md for detailed test cases
+
+⚡ **QUICK START - Essential Tests**
+
+1️⃣ BASIC FUNCTIONALITY (Must Test First)
+   ✓ Login with test accounts (retailer & admin)
+   ✓ Browse medicines
+   ✓ Add to cart
+   ✓ Place an order
+   ✓ View orders
+   ✓ Logout and login again
+
+2️⃣ RETAILER FEATURES (Test as regular user)
+   ✓ Search medicines
+   ✓ Filter by category
+   ✓ View medicine details
+   ✓ Add to favorites
+   ✓ Shopping cart operations
+   ✓ Order confirmation
+   ✓ View order history
+   ✓ Change password
+   ✓ Profile view (should be read-only)
+
+3️⃣ ADMIN FEATURES (Test with admin account)
+   ✓ Toggle admin mode (shield icon)
+   ✓ View all orders
+   ✓ Update order status
+   ✓ Filter orders by date
+   ✓ Export orders (Excel & PDF)
+   ✓ Create new user account
+   ✓ Edit user profiles
+   ✓ Add new product
+   ✓ Edit existing product
+   ✓ Export inventory to Excel
+   ✓ Import inventory from Excel
+   ✓ View accounting dashboard
+   ✓ Collect payments
+   ✓ View payment history
+   ✓ Check retailer statements
+   ✓ Export accounting ledger
+
+4️⃣ CRITICAL USER FLOWS
+   
+   **Retailer Flow:**
+   Login → Search Medicine → Add to Cart → Checkout → 
+   Confirm Address → Place Order → View in Orders → 
+   Check Order Status → Reorder → Cancel Order
+   
+   **Admin Flow:**
+   Login → Enable Admin Mode → View All Orders → 
+   Update Status → Create User → Add Product → 
+   Export Data → Collect Payment → View Ledger
+
+5️⃣ DATA EXPORT TESTS
+   ✓ Export orders to Excel (opens & readable?)
+   ✓ Export orders to PDF (prints correctly?)
+   ✓ Export inventory to Excel (all fields present?)
+   ✓ Export accounting ledger (accurate data?)
+   ✓ Files save/share properly
+   ✓ QuickShare/Save to Files works
+
+6️⃣ PAYMENT & ACCOUNTING TESTS
+   ✓ Dashboard shows correct totals
+   ✓ Can record full payment
+   ✓ Can record partial payment
+   ✓ Payment methods work (Cash/Card/UPI/etc.)
+   ✓ Payment history displays
+   ✓ Due amounts calculate correctly
+   ✓ Retailer statements accurate
+
+═══════════════════════════════════════════════════════════════
+
+🔍 **TEST ACCOUNTS NEEDED**
+
+Create these test accounts for thorough testing:
+
+1. **Admin Account**
+   - Email: admin@simplipharma.com
+   - Role: admin (set in Firestore users collection)
+   
+2. **Retailer Account 1**
+   - Email: retailer1@test.com
+   - Role: retailer
+   
+3. **Retailer Account 2**
+   - Email: retailer2@test.com
+   - Role: retailer
+
+═══════════════════════════════════════════════════════════════
+
+📱 **TESTING ON DEVICES**
+
+**Android:**
+- Install APK from EAS Build
+- Test all features
+- Check QuickShare for exports
+- Verify push notifications
+
+**iOS:**
+- Install via TestFlight or direct IPA
+- Test all features
+- Check share sheet for exports
+- Verify push notifications
+
+═══════════════════════════════════════════════════════════════
+
+🐛 **COMMON ISSUES TO CHECK**
+
+✓ Orders refresh after placing (should show immediately)
+✓ Profile address auto-fills in checkout
+✓ Admin panel only visible to admin users
+✓ Shield icon only shows for admin users
+✓ Excel files download and open properly
+✓ PDF exports are readable and printable
+✓ Passwords can be changed by users
+✓ Payment calculations are accurate
+✓ Date filters work correctly
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ **CRITICAL BUGS TO WATCH FOR**
+
+❌ App crashes
+❌ Cannot login
+❌ Orders not saving
+❌ Payments not recording
+❌ Exports failing
+❌ Admin features accessible to retailers
+❌ Data loss
+❌ Incorrect calculations
+
+═══════════════════════════════════════════════════════════════
+
+✅ **TESTING CHECKLIST SUMMARY**
+
+Total Test Cases: 150+
+
+Breakdown:
+- Authentication: 5 tests
+- Retailer Features: 15 tests
+- Admin Features: 21 tests
+- Notifications: 2 tests
+- Data Export: 2 tests
+- Maps & Tracking: 2 tests
+- UI/UX: 5 tests
+- Platform-Specific: 2 tests
+- Security: 3 tests
+- Integration: 2 tests
+- Performance: 3 tests
+- Critical Flows: 2 tests
+
+═══════════════════════════════════════════════════════════════
+
+📊 **PRIORITY LEVELS**
+
+🔴 **P0 - CRITICAL (Test First)**
+- Login/Logout
+- Place order
+- View orders
+- Admin order management
+- Payment collection
+
+🟡 **P1 - HIGH (Test Next)**
+- Search & filters
+- Cart operations
+- User management
+- Product management
+- Data exports
+
+🟢 **P2 - MEDIUM (Test If Time)**
+- Favorites
+- Order tracking
+- Search history
+- Notifications
+
+🔵 **P3 - LOW (Nice to Have)**
+- UI polish checks
+- Performance testing
+- Edge cases
+
+═══════════════════════════════════════════════════════════════
+
+📝 **TESTING TIPS**
+
+1. **Start Fresh:** Test with a clean app install
+2. **Test Both Roles:** Always test as retailer AND admin
+3. **Real Data:** Use realistic test data
+4. **Multiple Devices:** Test on different Android/iOS devices
+5. **Network:** Test with good and poor connectivity
+6. **Documentation:** Note any issues immediately
+7. **Screenshots:** Capture bugs for reference
+8. **Export Files:** Actually open and verify exported files
+
+═══════════════════════════════════════════════════════════════
+
+🎯 **30-MINUTE SMOKE TEST**
+
+If you only have 30 minutes:
+
+⏱️ Minutes 1-5: Login & Browse
+- Login as retailer
+- Browse medicine list
+- Search for a medicine
+
+⏱️ Minutes 6-10: Order Flow
+- Add items to cart
+- Checkout
+- Place order
+- Verify order appears
+
+⏱️ Minutes 11-15: Admin Basic
+- Login as admin
+- Toggle admin mode
+- View all orders
+- Update one order status
+
+⏱️ Minutes 16-20: User & Product Management
+- Create a new user
+- Add a new product
+- Edit existing product
+
+⏱️ Minutes 21-25: Accounting
+- Open accounting tab
+- Collect a payment
+- View payment history
+
+⏱️ Minutes 26-30: Exports
+- Export orders to Excel
+- Export inventory
+- Verify files open correctly
+
+═══════════════════════════════════════════════════════════════
+
+✨ **READY TO TEST!**
+
+1. See TESTING_CHECKLIST.md for full details
+2. Print this guide for quick reference
+3. Mark off tests as you complete them
+4. Report any bugs in the Bug Tracking section
+5. Aim for 100% pass rate before production!
+
+Good luck! 🚀
+
+═══════════════════════════════════════════════════════════════
+

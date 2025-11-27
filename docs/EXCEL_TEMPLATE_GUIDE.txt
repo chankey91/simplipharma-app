@@ -1,0 +1,290 @@
+═══════════════════════════════════════════════════════════
+📊 EXCEL TEMPLATE GUIDE FOR INVENTORY MANAGEMENT
+═══════════════════════════════════════════════════════════
+
+QUICK START:
+1. Export current inventory from app to get template
+2. Modify the Excel file as needed
+3. Import back to update inventory
+
+═══════════════════════════════════════════════════════════
+
+EXCEL FILE FORMAT:
+
+Column Headers (MUST match exactly, case-sensitive):
+─────────────────────────────────────────────────────────
+
+REQUIRED COLUMNS:
+• Name         - Medicine name (Text)
+• Category     - Product category (Text)
+• Price        - Price in ₹ (Number, no currency symbol)
+• Stock        - Quantity (Integer, whole number)
+• Manufacturer - Company name (Text)
+
+OPTIONAL COLUMNS:
+• ID           - Product ID for updates (Text, leave blank for new)
+• Description  - Brief description (Text)
+• Dosage       - Dosage info (Text, e.g., "500mg")
+• Composition  - Active ingredients (Text)
+• SideEffects  - Side effects (Text)
+• ImageURL     - Image link (Text, full URL)
+
+═══════════════════════════════════════════════════════════
+
+SAMPLE TEMPLATE:
+
+| ID      | Name        | Category    | Price | Stock | Manufacturer | Description      | Dosage | Composition    | SideEffects      | ImageURL |
+|---------|-------------|-------------|-------|-------|--------------|------------------|--------|----------------|------------------|----------|
+|         | Aspirin     | Pain Relief | 25.00 | 150   | Bayer        | Pain reliever    | 100mg  | Aspirin 100mg  | Nausea, dizziness|          |
+|         | Amoxicillin | Antibiotic  | 80.00 | 75    | Cipla Ltd.   | Antibiotic drug  | 500mg  | Amoxicillin    | Allergic reaction|          |
+| abc123  | Paracetamol | Pain Relief | 50.00 | 200   | Cipla Ltd.   | Fever reducer    | 500mg  | Paracetamol    | None            |          |
+
+═══════════════════════════════════════════════════════════
+
+USAGE SCENARIOS:
+
+1️⃣ ADD NEW PRODUCTS:
+────────────────────
+• Leave ID column BLANK or omit it
+• Fill all required fields
+• Import file → Products added
+
+Example:
+| ID | Name    | Category | Price | Stock | Manufacturer |
+|----|---------|----------|-------|-------|--------------|
+|    | Aspirin | Pain     | 25.00 | 100   | Bayer        |
+
+
+2️⃣ UPDATE EXISTING PRODUCTS:
+──────────────────────────────
+• Include the product ID from export
+• Modify any fields you want to change
+• Import file → Products updated
+
+Example:
+| ID     | Name        | Category | Price | Stock | Manufacturer |
+|--------|-------------|----------|-------|-------|--------------|
+| abc123 | Paracetamol | Pain     | 55.00 | 150   | Cipla Ltd.   |
+                                    ↑       ↑
+                             Price & Stock updated
+
+
+3️⃣ UPDATE ONLY STOCK:
+─────────────────────
+• Export current inventory
+• Modify ONLY the Stock column
+• Keep ID and Name columns
+• Import file → Stock updated
+
+Example:
+| ID     | Name        | Stock |
+|--------|-------------|-------|
+| abc123 | Paracetamol | 500   | ← New stock level
+| xyz789 | Aspirin     | 250   | ← New stock level
+
+
+4️⃣ BULK PRICE UPDATE:
+────────────────────
+• Export current inventory
+• Modify ONLY the Price column
+• Keep ID column
+• Import file → Prices updated
+
+
+5️⃣ MIXED OPERATIONS:
+───────────────────
+• Can have both new and existing products in same file
+• Products WITH ID → Updated
+• Products WITHOUT ID → Added as new
+
+Example:
+| ID     | Name       | Category | Price | Stock | Manufacturer |
+|--------|------------|----------|-------|-------|--------------|
+| abc123 | Existing1  | Cat1     | 50.00 | 100   | Company1     | ← Updated
+|        | NewProduct | Cat2     | 60.00 | 150   | Company2     | ← Added
+| xyz789 | Existing2  | Cat3     | 70.00 | 200   | Company3     | ← Updated
+
+═══════════════════════════════════════════════════════════
+
+DATA VALIDATION RULES:
+
+✅ VALID:
+• Name: "Paracetamol" or "PARACETAMOL" (any case)
+• Price: 25.00 or 25 (number format)
+• Stock: 100 (whole number, no decimals)
+• Category: Any text
+• Manufacturer: Any text
+
+❌ INVALID (will be SKIPPED):
+• Name: (empty) - Required
+• Price: "₹25.00" - No currency symbol
+• Price: "Twenty five" - Must be number
+• Stock: 100.5 - No decimals allowed
+• Stock: -10 - No negative numbers
+
+═══════════════════════════════════════════════════════════
+
+COMMON MISTAKES & FIXES:
+
+❌ Wrong: Column named "product_name"
+✅ Right: Column named "Name" (exact match)
+
+❌ Wrong: Price = "₹50.00" (with symbol)
+✅ Right: Price = 50.00 (number only)
+
+❌ Wrong: Stock = "100 units"
+✅ Right: Stock = 100 (number only)
+
+❌ Wrong: Empty required fields
+✅ Right: All required fields filled
+
+❌ Wrong: Merged cells in Excel
+✅ Right: Regular table format
+
+═══════════════════════════════════════════════════════════
+
+IMPORT PROCESS:
+
+1. File Selection
+   • Choose .xlsx file
+   • File is read into memory
+
+2. Validation
+   • Check required columns exist
+   • Validate each row data
+   • Skip invalid rows
+
+3. Processing
+   • For each valid row:
+     - If ID exists → Update
+     - If no ID but name matches → Update
+     - Otherwise → Add new
+
+4. Result
+   • Success message with counts:
+     - Added: X products
+     - Updated: Y products
+     - Errors: Z products
+
+═══════════════════════════════════════════════════════════
+
+BEST PRACTICES:
+
+1. ALWAYS BACKUP FIRST
+   ✓ Export before importing
+   ✓ Keep copy of original file
+
+2. TEST SMALL BATCH
+   ✓ Try 2-3 products first
+   ✓ Verify results
+   ✓ Then import all
+
+3. USE EXCEL FORMULAS CAREFULLY
+   ✓ Formulas okay for calculations
+   ✓ But convert to values before import
+   ✓ Right-click → Paste Special → Values
+
+4. HANDLE ERRORS GRACEFULLY
+   ✓ Read error messages
+   ✓ Fix issues in Excel
+   ✓ Re-import corrected file
+
+5. MAINTAIN DATA QUALITY
+   ✓ Consistent naming
+   ✓ Proper categories
+   ✓ Accurate stock levels
+
+═══════════════════════════════════════════════════════════
+
+WORKFLOW EXAMPLES:
+
+📦 DAILY STOCK UPDATE:
+1. Morning: Export inventory
+2. Update stock based on sales
+3. Import updated file
+4. Done! Stock synchronized
+
+🏷️ WEEKLY PRICE ADJUSTMENT:
+1. Export inventory
+2. Update prices in Excel
+3. Import updated file
+4. Prices updated
+
+📋 MONTHLY INVENTORY REVIEW:
+1. Export inventory
+2. Review in Excel
+3. Add new products
+4. Remove discontinued (set stock to 0)
+5. Import updated file
+
+🆕 SEASONAL PRODUCT ADDITION:
+1. Create Excel with new seasonal items
+2. Fill all required fields
+3. Import file
+4. New products available
+
+═══════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+
+Problem: "Failed to import file"
+Solution: 
+  • Check file format (.xlsx)
+  • Verify column names match exactly
+  • Ensure no merged cells
+
+Problem: "Invalid data" errors
+Solution:
+  • Check Price is number, not text
+  • Check Stock is integer
+  • Verify required fields filled
+
+Problem: Products not updating
+Solution:
+  • Ensure ID column included
+  • Verify ID matches exactly
+  • Check for typos in ID
+
+Problem: Duplicate products created
+Solution:
+  • Always include ID for updates
+  • Name matching is case-insensitive
+  • IDs take priority over names
+
+═══════════════════════════════════════════════════════════
+
+TIPS & TRICKS:
+
+💡 Use Excel Data Validation
+• Set Price > 0
+• Set Stock >= 0
+• Category dropdown list
+
+💡 Conditional Formatting
+• Highlight low stock (< 10)
+• Color-code categories
+• Flag missing data
+
+💡 Formulas for Stock Management
+• Calculate reorder points
+• Track stock turnover
+• Identify slow movers
+
+💡 Filtering & Sorting
+• Sort by category
+• Filter low stock
+• Find specific products
+
+═══════════════════════════════════════════════════════════
+
+REMEMBER:
+✓ Export → Modify → Import workflow
+✓ Always include required fields
+✓ Keep ID column for updates
+✓ Test before full import
+✓ Backup before changes
+
+═══════════════════════════════════════════════════════════
+
+Happy Inventory Management! 📊✨
+

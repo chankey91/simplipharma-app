@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpliPharma Icon Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .preview-container {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .preview-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        canvas {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        canvas:hover {
+            transform: scale(1.02);
+        }
+        .controls {
+            margin: 30px 0;
+        }
+        .control-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input[type="text"], input[type="color"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="color"] {
+            height: 50px;
+            cursor: pointer;
+        }
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        .secondary {
+            background: #4CAF50;
+        }
+        .secondary:hover {
+            background: #388E3C;
+        }
+        .instructions {
+            background: #E3F2FD;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #2196F3;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+        }
+        .canvas-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💊 SimpliPharma Icon Generator</h1>
+        <p class="subtitle">Create professional app icons for your medicine supply app</p>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="iconText">Icon Text (emoji or letters):</label>
+                <input type="text" id="iconText" value="💊" maxlength="3">
+            </div>
+
+            <div class="control-group">
+                <label for="bgColor1">Background Color (Primary):</label>
+                <input type="color" id="bgColor1" value="#2196F3">
+            </div>
+
+            <div class="control-group">
+                <label for="bgColor2">Background Color (Gradient End):</label>
+                <input type="color" id="bgColor2" value="#1976D2">
+            </div>
+
+            <div class="control-group">
+                <label for="iconStyle">Icon Style:</label>
+                <select id="iconStyle">
+                    <option value="gradient">Gradient Background</option>
+                    <option value="solid">Solid Color</option>
+                    <option value="circle">Circle Badge</option>
+                </select>
+            </div>
+
+            <button onclick="generateIcons()">🎨 Update Preview</button>
+        </div>
+
+        <div class="preview-container">
+            <div class="preview-section">
+                <div class="canvas-label">App Icon (1024×1024)</div>
+                <canvas id="iconCanvas" width="1024" height="1024"></canvas>
+                <button onclick="downloadIcon()">⬇️ Download icon.png</button>
+            </div>
+
+            <div class="preview-section">
+                <div class="canvas-label">Adaptive Icon (1024×1024)</div>
+                <canvas id="adaptiveCanvas" width="1024" height="1024"></canvas>
+                <button class="secondary" onclick="downloadAdaptive()">⬇️ Download adaptive-icon.png</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 How to Use:</h3>
+            <ol>
+                <li>Customize the icon using the controls above</li>
+                <li>Click "Update Preview" to see your changes</li>
+                <li>Download both <strong>icon.png</strong> and <strong>adaptive-icon.png</strong></li>
+                <li>Place both files in your project's <code>assets/</code> folder</li>
+                <li>Build your app with EAS to see the new icon</li>
+            </ol>
+            <p><strong>💡 Tip:</strong> Use emojis like 💊, ⚕️, 🏥, or 💉 for a medical theme, or use "SP" for SimpliPharma initials!</p>
+        </div>
+    </div>
+
+    <script>
+        function generateIcons() {
+            generateIcon('iconCanvas');
+            generateAdaptiveIcon('adaptiveCanvas');
+        }
+
+        function generateIcon(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const size = 1024;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            const iconText = document.getElementById('iconText').value || '💊';
+            const color1 = document.getElementById('bgColor1').value;
+            const color2 = document.getElementById('bgColor2').value;
+            const style = document.getElementById('iconStyle').value;
+            
+            // Background
+            if (style === 'gradient') {
+                const gradient = ctx.createLinearGradient(0, 0, 0, size);
+                gradient.addColorStop(0, color1);
+                gradient.addColorStop(1, color2);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+            } else if (style === 'solid') {
+                ctx.fillStyle = color1;
+                ctx.fillRect(0, 0, size, size);
+            } else if (style === 'circle') {
+                const gradient = ctx.createLinearGradient(0, 0, 0, size);
+                gradient.addColorStop(0, color1);
+                gradient.addColorStop(1, color2);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // White circle
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(size/2, size/2, size * 0.4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Icon text/emoji
+            ctx.fillStyle = style === 'circle' ? color1 : 'white';
+            ctx.font = 'bold ' + (size * 0.45) + 'px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(iconText, size/2, size/2);
+            
+            // Add shadow for depth
+            if (style !== 'circle') {
+                ctx.shadowColor = 'rgba(0,0,0,0.3)';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 10;
+                ctx.fillText(iconText, size/2, size/2);
+            }
+        }
+
+        function generateAdaptiveIcon(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const size = 1024;
+            
+            // Clear canvas with transparent background
+            ctx.clearRect(0, 0, size, size);
+            
+            const iconText = document.getElementById('iconText').value || '💊';
+            
+            // Icon text/emoji (centered, transparent background)
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold ' + (size * 0.5) + 'px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Shadow
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = 30;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 15;
+            
+            ctx.fillText(iconText, size/2, size/2);
+        }
+
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadIcon() {
+            downloadCanvas('iconCanvas', 'icon.png');
+        }
+
+        function downloadAdaptive() {
+            downloadCanvas('adaptiveCanvas', 'adaptive-icon.png');
+        }
+
+        // Generate initial icons
+        window.addEventListener('load', generateIcons);
+    </script>
+</body>
+</html>
+

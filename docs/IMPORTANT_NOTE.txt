@@ -1,0 +1,27 @@
+⚠️ IMPORTANT: Firebase Auth Client SDK Limitation ⚠️
+
+When you create a new user from the Admin User Management screen, 
+you will be AUTOMATICALLY LOGGED OUT.
+
+This is a Firebase security limitation when using the CLIENT SDK.
+
+WHAT TO DO:
+1. Create the user account
+2. You'll be logged out automatically
+3. Login again using your admin credentials
+4. Continue managing users
+
+WHY THIS HAPPENS:
+Firebase's createUserWithEmailAndPassword() automatically logs in 
+the newly created user for security reasons. The app tries to log 
+them out immediately, but you'll still need to re-authenticate.
+
+PRODUCTION SOLUTION:
+For production apps, use Firebase Admin SDK on a backend server 
+to create users without this limitation. See ADMIN_USER_MANAGEMENT.md 
+for details.
+
+TEMPORARY WORKAROUND:
+✅ App already handles this as gracefully as possible
+✅ You just need to log back in after creating each user
+

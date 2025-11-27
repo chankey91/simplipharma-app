@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "SimpliPharma",
+    "slug": "simplipharma",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medicinesupplyapp",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show delivery tracking on a map."
+      }
+    },
+    "android": {
+      "package": "com.simplipharma.app",
+      "versionCode": 1,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2196F3"
+      }
+    },
+    "plugins": [
+      "expo-notifications"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "419772b2-3463-418d-83fe-b896f4a3709f"
+      }
+    }
+  }
+}

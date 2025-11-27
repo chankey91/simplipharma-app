@@ -1,0 +1,94 @@
+═══════════════════════════════════════════════════════════════
+  FINAL FIX - BUILD WITH CACHE CLEARING
+═══════════════════════════════════════════════════════════════
+
+The tar extraction error happens because EAS has cached
+a corrupted build. We need to force a FRESH build.
+
+═══════════════════════════════════════════════════════════════
+  DO THIS NOW (In NEW Command Prompt):
+═══════════════════════════════════════════════════════════════
+
+Step 1: Open NEW Command Prompt
+Win + R → cmd → Enter
+
+Step 2: Navigate
+cd C:\Users\Chetan\OneDrive\Desktop\WEP\MedicineSupplyApp
+
+Step 3: Login (if needed)
+eas login
+
+Step 4: Build with --clear-cache flag
+eas build -p android --profile preview --clear-cache
+
+
+═══════════════════════════════════════════════════════════════
+  WHY --clear-cache?
+═══════════════════════════════════════════════════════════════
+
+This flag tells EAS Build to:
+✓ Ignore any cached builds
+✓ Start completely fresh
+✓ Reupload everything
+✓ Extract files cleanly
+✓ No tar errors!
+
+
+═══════════════════════════════════════════════════════════════
+  ALTERNATIVE: Try on Different Network
+═══════════════════════════════════════════════════════════════
+
+If --clear-cache doesn't work:
+
+1. Try on different WiFi network
+   (Sometimes upload gets corrupted on unreliable network)
+
+2. Try with mobile hotspot
+
+3. Disable VPN if using one
+
+
+═══════════════════════════════════════════════════════════════
+  LAST RESORT: EAS Build Locally
+═══════════════════════════════════════════════════════════════
+
+If cloud build keeps failing, build locally:
+
+eas build -p android --profile preview --local
+
+Requirements:
+- Docker Desktop installed
+- Or Android Studio with SDK
+
+
+═══════════════════════════════════════════════════════════════
+  COPY THIS COMMAND:
+═══════════════════════════════════════════════════════════════
+
+eas build -p android --profile preview --clear-cache
+
+
+═══════════════════════════════════════════════════════════════
+  SUCCESS LOOKS LIKE:
+═══════════════════════════════════════════════════════════════
+
+✔ Compressing project files
+✔ Uploading to EAS Build  
+✔ Queued build
+✔ Build in progress...
+✔ Build finished!
+🚀 Download: https://expo.dev/artifacts/...
+
+
+═══════════════════════════════════════════════════════════════
+  IF IT STILL FAILS:
+═══════════════════════════════════════════════════════════════
+
+Copy the FULL error message and we'll try:
+1. Local build
+2. Different EAS profile
+3. Fresh project clone
+
+
+═══════════════════════════════════════════════════════════════
+
